@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  <form id='test' method="post" action="/upload">
+      <table>
+          <tr>
+              <td><input id="message" name="message" type="text"/></td>
+          </tr>
+      </table>
+      <input type="submit" value="提交"/>
+  </form>
+  </body>
+</html>

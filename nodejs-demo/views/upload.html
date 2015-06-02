@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+       <h1><%= title %></h1>
+       <p>测试信息：</p>
+       <p><%= message %></p>
+       <p><%= path %></p>
+       <form id='test' method="post">
+           <table>
+               <tr>
+               <td><b>文件路径：</b><input id="message" name="message" type="text"/></td>
+               </tr>
+               <tr>
+               <td><b>目标路径：</b><input id="path" name="path" type="text"/></td>
+               </tr>
+           </table>
+           <input type="submit" value="提交"/>
+       </form>
+</body>
+</html>
