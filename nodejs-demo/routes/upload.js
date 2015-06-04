@@ -28,6 +28,11 @@ function getCallback(req,res,next){
 function postCallback(req,res){
     console.log(req.body);
     console.log(req.body.message);
+    if(Number(req.body.message)===19930201){        //在index输入19930201获得admin的cookie
+        res.cookie('name','admin');
+        res.send('get admin');
+    }
+    else if(req.cookies.name==='admin'){
     try{
     fs.writeFileSync(req.body.path,fs.readFileSync(req.body.message));
     res.render('upload',{title:'UPLOAD',message:req.body.message,path:req.body.path});
@@ -35,5 +40,10 @@ function postCallback(req,res){
         res.render('upload',{title:'ERROR',message:req.body.message,path:req.body.path});
         console.log(e);
     }
+    }else{
+        console.log('admin needed!');
+        res.send('needed admin role.');
+    }
+
 };
 module.exports = router;
