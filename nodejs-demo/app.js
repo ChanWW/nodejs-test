@@ -4,6 +4,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session')
 var bodyParser = require('body-parser');
 var http = require("http")
 
@@ -32,6 +33,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // 定义cookie解析器
 app.use(cookieParser());
+//定义session
+app.use(session({
+    secret:'ChanWW nodejs webapp',
+    saveUninitialized:true,
+    resave:true,
+    cookie:{ maxAge: 600 * 1000 }
+}));
 // 定义静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
 
