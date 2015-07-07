@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    console.log("Responded on child_process:pid "+process.pid);
     if(req.cookies.name){
     res.render('index', { title: 'ChanWW nodejs webapp','name':req.cookies.name });
     }
