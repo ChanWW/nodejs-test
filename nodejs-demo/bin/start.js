@@ -17,10 +17,10 @@ var server = http.createServer(app);
 console.log("Server started on "+process.pid);
 process.on("message", function(msg,socket) {
     process.nextTick(function(){
-        console.log(msg);
+        //console.log(msg);
         if(msg == 'check'){
-            console.log('checking');
-            process.send('checked');
+            console.log('<cp>:'+process.pid+' checking');
+            process.send('<mp>:'+process.pid+' checked');
         }
         //console.log("Responded on child_process:pid "+process.pid);
         if(msg == 'c' && socket) {
@@ -33,7 +33,7 @@ process.on("message", function(msg,socket) {
             //server.connections++;
 
             server.emit("connection", socket);
-            //socket.emit("connect");
+            socket.emit("connect");
         }
     });
 });
